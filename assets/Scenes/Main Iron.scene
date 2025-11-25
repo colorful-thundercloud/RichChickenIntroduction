@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "Main",
+    "_name": "Main Iron",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_native": "",
@@ -11,7 +11,7 @@
   },
   {
     "__type__": "cc.Scene",
-    "_name": "Main",
+    "_name": "Main Iron",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -83,7 +83,7 @@
     "_globals": {
       "__id__": 722
     },
-    "_id": "562f8c21-868d-4e64-8069-7c90b6e30736"
+    "_id": "1ff7747c-9555-4fc7-bb91-83ec847de37c"
   },
   {
     "__type__": "cc.Node",
@@ -28449,7 +28449,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "addIronStr": false,
+    "addIronStr": true,
     "ironsLabel": [
       {
         "__id__": 328

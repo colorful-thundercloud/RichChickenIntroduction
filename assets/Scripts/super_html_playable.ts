@@ -11,9 +11,13 @@ declare global {
     interface Window {
         APP_STORE_URL?: string;
         GOOGLE_PLAY_URL?: string;
+        LINKACTIVE?: boolean;
     }
 }
 
+// Ссылки на магазины приложений
+const APP_STORE_URL = "";
+const GOOGLE_PLAY_URL = "";
 
 export class super_html_playable {
 
@@ -74,17 +78,19 @@ export class super_html_playable {
         console.log("download");
         
         const platform = this.getPlatform();
-        let targetUrl;
-
+        let targetUrl = GOOGLE_PLAY_URL; // По умолчанию Android
+        
+        // Определяем нужную ссылку
         if (platform === 'ios') {
-            targetUrl = window.APP_STORE_URL || "https://apps.apple.com/us/app/defend-fortress-era/id6748325756?mt=8";
-            this.set_app_store_url(targetUrl);
+            targetUrl = window.APP_STORE_URL || APP_STORE_URL;
+            this.set_app_store_url(APP_STORE_URL);
         } else {
-            targetUrl = window.GOOGLE_PLAY_URL || "https://apps.apple.com/us/app/defend-fortress-era/id6748325756?mt=8";
-            this.set_google_play_url(targetUrl);
+            targetUrl = window.GOOGLE_PLAY_URL || GOOGLE_PLAY_URL;
+            this.set_google_play_url(GOOGLE_PLAY_URL);
         }
         
         console.log(`Opening store for ${platform}: ${targetUrl}`);
+        if (targetUrl != '')
         this.safeWindowOpen(targetUrl);
         
         // Вызываем нативный метод, если доступен
@@ -94,7 +100,7 @@ export class super_html_playable {
 
     game_end() {
         console.log("game end");
-        this.set_google_play_url(window.GOOGLE_PLAY_URL || "https://apps.apple.com/us/app/defend-fortress-era/id6748325756?mt=8");
+        this.set_google_play_url(window.GOOGLE_PLAY_URL || GOOGLE_PLAY_URL);
         //@ts-ignore
         window.super_html && super_html.game_end();
     }
